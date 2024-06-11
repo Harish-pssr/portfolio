@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Portfolio Details - Personal Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details ======= -->
+    <div id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-8">
+            <h2 class="portfolio-title" id="project-title">This is an example of portfolio detail</h2>
+
+            <div class="portfolio-details-slider swiper" id="project-slider">
+              <div class="swiper-wrapper align-items-center" id="slider-content">
+
+                <!-- Example slides, these will be replaced dynamically -->
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/portfolio-details-1.jpg" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/portfolio-details-2.jpg" alt="">
+                </div>
+
+                <!-- <div class="swiper-slide">
+                  <img src="assets/img/portfolio/portfolio-details-3.jpg" alt="">
+                </div> -->
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-4 portfolio-info">
+            <h3>Project information</h3>
+            <ul id="project-info">
+              <li><strong>Category</strong>: <span id="project-category">SQL</span></li>
+              <li><strong>Project name</strong>: <span id="project-name">Project name</span></li>
+              <li><strong>Project date</strong>: <span id="project-date">01 March, 2020</span></li>
+              <li><strong>Project URL</strong>: <a href="#" target="_blank" id="project-url">Click here</a></li>
+            </ul>
+
+            <p id="project-description">
+              Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia.
+              Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium
+              nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div><!-- End Portfolio Details -->
+
+  </main><!-- End #main -->
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Custom JS for dynamic content -->
+  <script>
+    let swiperInstance;
+
+    function initializeSwiper() {
+      if (swiperInstance) {
+        swiperInstance.destroy(true, true); // Destroy the previous instance completely
+      }
+
+      swiperInstance = new Swiper('.portfolio-details-slider', {
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true
+        },
+        loop: false, // Ensure this matches your original Swiper configuration
+        autoplay: {
+          delay: 3000, // Change this value to your desired delay in milliseconds (3000ms = 3 seconds)
+          disableOnInteraction: false
+        }
+      });
+
+      swiperInstance.update(); // Update Swiper instance to ensure pagination is correct
+    }
+
+    // Function to load project details
+    function loadProjectDetails(project) {
+      const projectDetails = {
+        pizza_sales_analysis: {
+          title: 'Pizza Sales Analysis Details',
+          category: 'SQL',
+          name: 'Pizza Sales Analysis',
+          date: '06 June, 2024',
+          url: 'https://github.com/Harish-pssr/portfolio-projects/tree/main/SQL/Pizza%20Sales%20Analysis',
+          description: 'This project provides a comprehensive analysis of pizza sales data. It includes insights into total revenue, most popular pizza sizes, and top-selling pizza types. By examining order patterns and revenue contributions, it helps identify customer preferences and optimize inventory and marketing strategies',
+          images: [
+            'assets/img/portfolio_details/pizza_Sales_analysis.jpg',
+            'assets/img/portfolio_details/sql.jpg'
+          ]
+        },
+        netflix_content_analysis: {
+          title: 'Netflic Content Analysis Details',
+          category: 'Tableau',
+          name: 'Netflix Content Analysis',
+          date: '7 June, 2024',
+          url: 'https://github.com/Harish-pssr/portfolio-projects/tree/main/Tableau/Netflix%20Content%20Analysis',
+          description: 'Dive into the expansive world of Netflix with this project. Explore the trends and patterns across movies and TV shows, visualize the top genres, and analyze country-wise distribution of Netflix content. Gain insights into release trends over the years and understand the ratings distribution for better content strategies',
+          images: [
+            'assets/img/portfolio_details/netflix_content_analysis.jpg',
+            'assets/img/portfolio_details/tableau.jpg'
+          ]
+        },
+        road_accident_casualities: {
+          title: 'Road Accident Casualities Analysis details',
+          category: 'Excel',
+          name: 'Road Accident Casualities Analysis',
+          date: '17 May, 2024',
+          url: 'https://github.com/Harish-pssr/portfolio-projects/tree/main/Excel/Road%20Accident%20Casualities%20Dashboard',
+          description: 'This project examines road accident casualties data to identify key patterns and contributing factors. Analyze the severity of accidents, common vehicle types involved, and trends based on weather conditions and locations. The insights aim to support traffic safety initiatives and policy-making',
+          images: [
+            'assets/img/portfolio_details/road_accident_casualities.png',
+            'assets/img/portfolio_details/excel.jpg'
+          ]
+        },
+        mcu_analysis: {
+          title: 'MCU Analysis Details',
+          category: 'Power BI',
+          name: 'Marvel Cinematic Universe Analysis (till THE MARVELS)',
+          date: '31 May, 2024',
+          url: 'https://github.com/Harish-pssr/portfolio-projects/tree/main/PowerBI/MCU%20Analysis%20Dashboard',
+          description: 'Unveil the box office dynamics of the Marvel Cinematic Universe (MCU) with this project. Analyze domestic and international collections, track revenue trends over time, and evaluate the performance of different phases. This dashboard provides a holistic view of the MCU\'s financial success and critical reception.',
+          images: [
+            'assets/img/portfolio_details/mcu_analysis.jpg',
+            'assets/img/portfolio_details/powerbi.jpg'
+          ]
+        },
+        genz_career_aspirations: {
+          title: 'Genz Career Aspirations Analysis Details',
+          category: 'Python',
+          name: 'Genz Career Aspirations Analysis',
+          date: '26 May, 2024',
+          url: 'https://github.com/Harish-pssr/portfolio-projects/tree/main/Python/GenZ%20Career%20Aspirations%20Analysis',
+          description: 'Analyze the career aspirations of Gen Z with this detailed project. Through various data visualizations, understand the preferences, goals, and trends among young professionals. This analysis helps in tailoring career guidance programs and developing targeted recruitment strategies.',
+          images: [
+            'assets/img/portfolio_details/genz_career_aspirations.png',
+            'assets/img/portfolio_details/python.png'
+          ]
+        },
+        diwali_shopping_analysis: {
+          title: 'Diwali Shopping Analysis Details',
+          category: 'Python',
+          name: 'Diwali Shopping Analysis',
+          date: '25 May, 2024',
+          url: 'https://github.com/Harish-pssr/portfolio-projects/tree/main/Python/Diwali%20Shopping%20Analysis',
+          description: 'Explore the sales trends during the Diwali festival with this data analysis project. Identify peak sales periods, top-selling products, and customer demographics. The insights derived can assist businesses in planning inventory, marketing campaigns, and optimizing sales strategies for festive seasons.',
+          images: [
+            'assets/img/portfolio_details/diwali_shopping_analysis.jpg',
+            'assets/img/portfolio_details/python.png'
+          ]
+        },
+        
+        ipl_analysis: {
+          title: 'IPL Analysis Details',
+          category: 'Power BI',
+          name: 'Indian Premier Leagure Analysis (2008-2022)',
+          date: '17 May, 2024',
+          url: 'https://github.com/Harish-pssr/portfolio-projects/tree/main/PowerBI/IPL%202008-2022%20Dashboard',
+          description: 'Gain a deep understanding of IPL matches from 2008 to 2022. This PowerBI dashboard offers insights into team performances, player statistics, and match outcomes. With detailed visuals on toss decisions, player awards, and seasonal trends, it serves as a comprehensive tool for cricket analysts and enthusiasts.',
+          images: [
+            'assets/img/portfolio_details/ipl_analysis.png',
+            'assets/img/portfolio_details/powerbi.jpg'
+          ]
+        }
+        // Add more projects as needed
+      };
+
+      const details = projectDetails[project];
+      if (details) {
+        document.getElementById('project-title').textContent = details.title;
+        document.getElementById('project-category').textContent = details.category;
+        document.getElementById('project-name').textContent = details.name;
+        document.getElementById('project-date').textContent = details.date;
+        // document.getElementById('project-url').textContent = details.url;
+        document.getElementById('project-url').href = details.url;
+        document.getElementById('project-description').textContent = details.description;
+
+        const sliderContent = document.getElementById('slider-content');
+        sliderContent.innerHTML = ''; // Clear existing slides
+        details.images.forEach(image => {
+          const slide = document.createElement('div');
+          slide.className = 'swiper-slide';
+          slide.innerHTML = `<img src="${image}" alt="">`;
+          sliderContent.appendChild(slide);
+        });
+
+        // Reinitialize Swiper
+        initializeSwiper();
+      }
+    }
+
+    // Get the project parameter from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const project = urlParams.get('project');
+    if (project) {
+      loadProjectDetails(project);
+    } else {
+      // Initialize Swiper with default content
+      initializeSwiper();
+    }
+  </script>
+
+</body>
+
+</html>
