@@ -747,7 +747,7 @@
         </div>
       </div> -->
 
-      <form action="https://formsubmit.co/8407a05c501673654a3782f43d9b513b" method="post" role="form" class="php-email-form mt-4" onsubmit="return showRedirectAlert()">
+      <form target="_blank" action="https://formspree.io/f/xayrrebr" method="POST" role="form" class="php-email-form mt-4" onsubmit="return handleFormSubmission(event)">
         <div class="row">
           <div class="col-md-6 form-group">
             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -767,14 +767,47 @@
           <div class="error-message"></div>
           <div class="sent-message">Your message has been sent. Thank you!</div>
         </div>
-        <div class="text-center"><button type="submit">Send Message</button></div>
+        <div class="text-center" ><button type="submit">Send Message</button></div>
       </form>
       <script>
-        function showRedirectAlert() {
-          alert("Please note that you may occasionally be redirected to formsubmit.co for human verification purposes.");
-          return true; // Allow the form submission to continue
+        function handleFormSubmission(event) {
+            event.preventDefault(); // Prevent the form from submitting automatically
+            
+            // if (confirm("Please note that you will be redirected to Formspree's thank you page after submitting. Do you agree to continue?")) {
+                // If user agrees, submit the form
+                document.querySelector('.loading').classList.add('d-block');
+                document.querySelector('.error-message').classList.remove('d-block');
+                document.querySelector('.sent-message').classList.remove('d-block');
+                
+                let formData = new FormData(event.target);
+                fetch(event.target.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {'Accept': 'application/json'}
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Failed to submit form: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.querySelector('.loading').classList.remove('d-block');
+                    document.querySelector('.sent-message').classList.add('d-block');
+                    event.target.reset(); // Reset the form
+                    // setTimeout(function() {
+                    //     location.reload(); // Reload the page after a short delay
+                    // }, 3000);
+                })
+                .catch(error => {
+                    document.querySelector('.loading').classList.remove('d-block');
+                    document.querySelector('.error-message').innerHTML = `Error: ${error.message}`;
+                    document.querySelector('.error-message').classList.add('d-block');
+                });
+                
+            
         }
-      </script>
+    </script>
     </div>
   </section><!-- End Contact Section -->
 
